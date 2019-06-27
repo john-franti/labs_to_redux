@@ -1,0 +1,21 @@
+body {
+    background-color: rgb(26, 27, 27);
+    color: yellow;
+}
+
+#welcome {
+    font-family: 'Luminari', fantasy;
+    text-align: center;
+    margin-top: 40px;
+}
+
+.hobbit {
+    border: solid green 2px;
+    margin: 2px;
+    width: 125px;
+    display: inline-block;
+}
+
+.hobbit h1,.hobbit h2,.hobbit h3 {
+    font-size: 17px;
+}
