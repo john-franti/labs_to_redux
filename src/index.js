@@ -1,8 +1,9 @@
+import React from 'react';
+import ReactDOM from 'react-dom';
+import App from './App'
+
 // document.body.innerHTML = "<h1>Hello World</h1>"
 
-import React from "react";
-import ReactDOM from "react-dom";
-import App from "./App";
-
-// const myElement = React.createElement("h1", null, "Hello from React")
+const myElement = React.createElement("h1", {name: "john"}, "Hello from React")
+// console.log(myElement)
 ReactDOM.render(<App />, document.getElementById("root"));
