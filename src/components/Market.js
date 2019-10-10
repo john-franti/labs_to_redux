@@ -3,38 +3,25 @@ import React, { Component } from "react";
 class Market extends Component {
   constructor() {
     super();
-    console.log("%cFIRST CHILD constructor", "color:green;");
+    console.log("%cMARKET constructor", "color:green;");
     this.state = {
-      marketTrend: 1
+      marketTrend: 0
     };
   }
 
-  updateMyStocks = () => {
-    this.props.onMarketUpdates(this.state.marketTrend);
-  };
-
-  calculateMarketTrend = () => {
-    this.setState(() => {
-      let nextValue = Math.random() * 10;
+  changeMarket = () => {
+    this.setState(prevState => {
+      let change = Math.random().toFixed(2)*5;
       if (Math.random() > 0.5) {
-        nextValue *= -1;
+        change *= -1;
       }
-      return { marketTrend: nextValue.toFixed(2) };
+      return {
+        marketTrend: (
+          parseFloat(prevState.marketTrend) + parseFloat(change)
+        ).toFixed(2)
+      };
     });
   };
-
-  startTrading = () => setInterval(() => {
-    this.calculateMarketTrend();
-    this.updateMyStocks();
-  }, 1000);
-
-  componentDidMount = () => {
-    this.startTrading()
-  }
-
-  componentWillUnmount = () => {
-    clearInterval(this.startTrading);
-  }
 
   render() {
     return (
@@ -43,8 +30,11 @@ class Market extends Component {
           this.state.marketTrend >= 0 ? "positive" : "negative"
         }`}
       >
-        <h2>STOCK TICKER</h2>
-        <h5>Stocks are about to change by {this.state.marketTrend}%</h5>
+        <h2 onClick={this.changeMarket}>STOCK TICKER</h2>
+        <h5>
+          Stocks are {this.state.marketTrend >= 0 ? "rising" : "dropping"} by{" "}
+          {this.state.marketTrend}%
+        </h5>
       </div>
     );
   }

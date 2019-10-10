@@ -7,8 +7,8 @@ class App extends Component {
     super();
     console.log("%cAPP constructor", "color:red;");
     this.state = {
-      account: 100,
-      stocks: 0,
+      account: 25.00,
+      stocks: 0.00,
       tradingOpen: false
     };
   }
@@ -33,15 +33,6 @@ class App extends Component {
         };
       });
     }
-  };
-
-  computeStockChange = trend => {
-    console.log("CHANGING MONEY", trend)
-    this.setState(prevState => {
-      return {
-        stocks: prevState.stocks * (100+parseFloat(trend)/100)
-      };
-    });
   };
 
   openTrading = () => {
