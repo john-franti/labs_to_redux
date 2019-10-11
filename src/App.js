@@ -1,16 +1,36 @@
 import React, { Component } from "react";
 import "./App.css";
 import Market from "./components/Market";
+import FirstChild from "./components/FirstChild";
+
+//ES6 review requests
+//why does scope seem to change within class methods (closures)
+//props into constructor (and super())
+//object and array destructuring
+//.map() returns (React specific)
+//arrows
+//  one liners
+//this in JS
 
 class App extends Component {
   constructor() {
     super();
     console.log("%cAPP constructor", "color:red;");
     this.state = {
-      account: 25.00,
-      stocks: 0.00,
-      tradingOpen: false
+      account: 25.0,
+      stocks: 0.0,
+      tradingOpen: false,
+      timer: 0
     };
+    // this.runTimer = this.runTimer.bind(this)
+  }
+
+  componentDidUpdate() {
+    console.log("%cAPP updated", "color:red;");
+  }
+
+  componentDidMount() {
+    console.log("%cAPP did mount", "color:red;");
   }
 
   buyStock = () => {
@@ -39,10 +59,22 @@ class App extends Component {
     this.setState({ tradingOpen: !this.state.tradingOpen });
   };
 
+
+  //runTimer is defined as a single action, that represents a single 
+  //update to the timer, rather than the update cycle - this was my intial mistake
+  runTimer = () => {
+    this.setState(prevState => {
+      return { timer: prevState.timer + 1 };
+    });
+  };
+
   render() {
+    console.log("%cAPP render", "color:red;");
     return (
       <div className="container app">
         <h1>Stock Tracker</h1>
+        <FirstChild myValue={this.state.account} />
+        <h1>TIMER: {this.state.timer}</h1>
         <div>
           <h4>
             My account contains{" "}
@@ -67,7 +99,11 @@ class App extends Component {
         </div>
         <hr />
         {this.state.tradingOpen ? (
-          <Market parentState={this.state} onMarketUpdates={this.computeStockChange}/>
+          <Market
+            onRunTimer={this.runTimer}
+            parentState={this.state}
+            onMarketUpdates={this.computeStockChange}
+          />
         ) : null}
       </div>
     );
