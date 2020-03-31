@@ -1,27 +1,20 @@
-import React, { Component } from "react";
-import Greetings from "./components/Greetings";
-import Title from './components/Title'
+import React from "react";
+import StudentsBrowser from "./components/StudentsBrowser"
 
-class App extends Component {
 
-  state = {
-    name: "John",
-    friendsList: ["Zoe", "Nathan", "Bob", "Sarah"]
-  }
+class App extends React.Component {
 
-  handleClickTitle = data => {
-    this.setState({name:data})
-  }
-
+    state = {
+        students: ["Clarion", "Jonny", "Joe", "Aiden", "Zeb", "David"],
+        students2: ["Diana", "Chris", "Matt", "Lief"]
+    }
 
   render() {
     return (
       <div>
-        <Title onClickTitle={this.handleClickTitle} name={this.state.name}/>
-        {/* <h1 onClick={this.handleClickTitle}>Hello from {this.state.name} at App Component</h1> */}
-        {this.state.friendsList.map((friend, index) => {
-          return <Greetings key={index} friend={friend} />
-        })}
+        <h1>Hello 012720 from App Component</h1>
+        <StudentsBrowser studentList={this.state.students} />
+        <StudentsBrowser studentList={this.state.students2} />  
       </div>
     );
   }
