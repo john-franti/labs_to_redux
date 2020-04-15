@@ -7,7 +7,7 @@ import React from 'react'
 // }
 
 const Student = (props) => {
-    return <li>{props.student}</li>
+    return <li>{props.student.studentName}</li>;
 }
 
 export default Student

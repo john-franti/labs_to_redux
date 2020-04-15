@@ -8,8 +8,8 @@ import Student from './Student'
 
 class StudentsBrowser extends React.Component {
   renderStudents = () => {
-    return this.props.studentList.map(student => {
-        return <Student student={student}/>
+    return this.props.studentList.map((student, index) => {
+        return <Student key={index} student={student}/>
     })
   };
 
