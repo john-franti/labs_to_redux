@@ -4,10 +4,7 @@ import StudentForm from "./components/StudentForm";
 
 class App extends React.Component {
   state = {
-    students: [
-      { studentName: "Kailana", enrolled: true },
-      { studentName: "Jack", enrolled: true }
-    ],
+    students: [],
     safeBool: true
   };
 
