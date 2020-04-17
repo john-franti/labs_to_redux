@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import App from "./App";
+import "./assets/css/minty-bootstrap.css";
 ReactDOM.render(<App />, document.getElementById("root"));
 
 // let header = React.createElement("h1", null, "Hello 012720");
@@ -17,3 +18,5 @@ ReactDOM.render(<App />, document.getElementById("root"));
 
 // console.log(testHeader);
 // document.body.appendChild(header)
+
+
