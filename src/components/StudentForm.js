@@ -1,5 +1,8 @@
 import React, { Component } from "react";
 import { Button, Container } from "react-bootstrap";
+import { connect } from 'react-redux';
+import { addStudent } from "../redux";
+
 
 const INITIAL_STATE = {
   studentName: "",
@@ -57,4 +60,17 @@ class StudentForm extends Component {
   }
 }
 
-export default StudentForm;
+// const mapStateToProps = state => {
+//   return {}
+// }
+
+const mapDispatchToProps = dispatch => {
+  return {
+    onAddStudent: (studentFromState) => dispatch(addStudent(studentFromState)),
+  //   onAddStudent: (studentFromState) =>
+  //     dispatch({ type: "ADD_STUDENT", payload: studentFromState }),
+  // };
+  }
+}
+
+export default connect(null, mapDispatchToProps)(StudentForm);
