@@ -1,7 +1,7 @@
 import { ADD_STUDENT } from "./studentTypes";
  
 const initialState = {
-  students: [{studentName: "Jane"}],
+  data: [{studentName: "Jane"}],
 };
 
 const studentReducer = (state = initialState, action) => {
@@ -9,7 +9,7 @@ const studentReducer = (state = initialState, action) => {
     case ADD_STUDENT:
       return {
         ...state,
-        students: [...state.students, action.payload],
+        data: [...state.data, action.payload],
       };
     default:
       return state;

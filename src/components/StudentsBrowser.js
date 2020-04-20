@@ -24,7 +24,7 @@ class StudentsBrowser extends React.Component {
 
 const mapStateToProps = state => {
   return {
-    studentList: state.students
+    studentList: state.students.data
   }
 }
 
