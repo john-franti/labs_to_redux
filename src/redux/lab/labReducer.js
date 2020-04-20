@@ -1,7 +1,7 @@
 import { ADD_LAB, ASSIGN_STUDENT_TO_LAB } from "./labTypes";
 
 const initialState = {
-  data: [{labName: "silly lab", students: [{studentName: "Jane"}]}],
+  data: [{labName: "test lab", students: [{studentName: "test student"}]}],
 };
 
 const labReducer = (state = initialState, action) => {
@@ -9,7 +9,7 @@ const labReducer = (state = initialState, action) => {
     case ADD_LAB:
       return {
         ...state,
-        data: [...state.labs, action.payload],
+        data: [...state.data, action.payload],
       };
     default:
       return state;

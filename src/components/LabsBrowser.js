@@ -1,10 +1,10 @@
 import React from "react";
 import Lab from "./Lab";
+import LabForm from "./LabForm";
 import { connect } from "react-redux";
 
 class LabsBrowser extends React.Component {
   renderLabs = () => {
-    console.log(this.props.labList);
     return this.props.labList.map((lab, index) => {
       return <Lab key={index} lab={lab} />;
     });
@@ -12,10 +12,13 @@ class LabsBrowser extends React.Component {
 
   render() {
     return (
+      <>
       <div className="col col-md-6">
+      <LabForm />
         <h3>Current Labs</h3>
         <ul>{this.renderLabs()}</ul>
       </div>
+      </>
     );
   }
 }

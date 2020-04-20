@@ -51,7 +51,7 @@ class StudentForm extends Component {
           </div>
           <div className="form-group">
           <Button type="submit" variant="danger">
-            Add Student - Bootstrap Button
+            Add Student
           </Button>
           </div>
         </form>
