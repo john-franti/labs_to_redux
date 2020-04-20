@@ -11,16 +11,6 @@ const labReducer = (state = initialState, action) => {
         ...state,
         data: [...state.labs, action.payload],
       };
-    case ASSIGN_STUDENT_TO_LAB:
-      return {
-        ...state,
-        labs: state.data.map((lab) => {
-          if (lab.id === action.payload.lab.id) {
-            return { ...lab, students: [lab.students, action.payload.student] };
-          }
-          return lab;
-        }),
-      };
     default:
       return state;
   }

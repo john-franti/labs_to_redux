@@ -1,2 +1,1 @@
 export const ADD_LAB = "ADD_LAB";
-export const ASSIGN_STUDENT_TO_LAB = "ASSIGN_STUDENT_TO_LAB"

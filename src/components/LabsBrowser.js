@@ -4,14 +4,19 @@ import { connect } from "react-redux";
 
 class LabsBrowser extends React.Component {
   renderLabs = () => {
-    console.log(this.props.labList)
+    console.log(this.props.labList);
     return this.props.labList.map((lab, index) => {
       return <Lab key={index} lab={lab} />;
     });
   };
 
   render() {
-    return <ul>{this.renderLabs()}</ul>;
+    return (
+      <div className="col col-md-6">
+        <h3>Current Labs</h3>
+        <ul>{this.renderLabs()}</ul>
+      </div>
+    );
   }
 }
 

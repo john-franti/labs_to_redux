@@ -1,19 +1,22 @@
 import React from "react";
-import Student from './Student';
-import { connect } from "react-redux"; 
+import Student from "./Student";
+import { connect } from "react-redux";
+import StudentForm from "./StudentForm";
+
 
 class StudentsBrowser extends React.Component {
   renderStudents = () => {
     return this.props.studentList.map((student, index) => {
-        return <Student key={index} student={student}/>
-    })
+      return <Student key={index} student={student} />;
+    });
   };
 
   render() {
     return (
-      <ul>
-        {this.renderStudents()}
-      </ul>
+      <div className="col col-md-6">
+        <StudentForm />
+        <ul>{this.renderStudents()}</ul>
+      </div>
     );
   }
 }
@@ -22,10 +25,10 @@ class StudentsBrowser extends React.Component {
 //   studentList: []
 // }
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return {
-    studentList: state.students.data
-  }
-}
+    studentList: state.students.data,
+  };
+};
 
 export default connect(mapStateToProps)(StudentsBrowser);
